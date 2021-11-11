@@ -253,7 +253,7 @@ public class PlayerActivity extends Activity {
                 frameRendered = true;
                 playerView.setControllerShowTimeoutMs(-1);
                 scrubbingStart = player.getCurrentPosition();
-                player.setSeekParameters(SeekParameters.CLOSEST_SYNC);
+                player.setSeekParameters(SeekParameters.EXACT);
                 reportScrubbing(position);
             }
 
@@ -620,7 +620,7 @@ public class PlayerActivity extends Activity {
                     long seekTo = player.getCurrentPosition() - 10_000;
                     if (seekTo < 0)
                         seekTo = 0;
-                    player.setSeekParameters(SeekParameters.PREVIOUS_SYNC);
+                    player.setSeekParameters(SeekParameters.EXACT);
                     player.seekTo(seekTo);
                     playerView.setCustomErrorMessage(Utils.formatMilis(seekTo));
                     return true;
@@ -637,7 +637,7 @@ public class PlayerActivity extends Activity {
                     long seekMax = player.getDuration();
                     if (seekMax != C.TIME_UNSET && seekTo > seekMax)
                         seekTo = seekMax;
-                    PlayerActivity.player.setSeekParameters(SeekParameters.NEXT_SYNC);
+                    PlayerActivity.player.setSeekParameters(SeekParameters.EXACT);
                     player.seekTo(seekTo);
                     playerView.setCustomErrorMessage(Utils.formatMilis(seekTo));
                     return true;

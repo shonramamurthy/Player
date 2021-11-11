@@ -222,13 +222,13 @@ public class CustomStyledPlayerView extends StyledPlayerView implements GestureD
                 if (PlayerActivity.haveMedia) {
                     if (gestureScrollX > 0) {
                         if (seekStart + seekChange - SEEK_STEP  * distanceDiff >= 0) {
-                            PlayerActivity.player.setSeekParameters(SeekParameters.PREVIOUS_SYNC);
+                            PlayerActivity.player.setSeekParameters(SeekParameters.EXACT);
                             seekChange -= SEEK_STEP * distanceDiff;
                             position = seekStart + seekChange;
                             PlayerActivity.player.seekTo(position);
                         }
                     } else {
-                        PlayerActivity.player.setSeekParameters(SeekParameters.NEXT_SYNC);
+                        PlayerActivity.player.setSeekParameters(SeekParameters.EXACT);
                         if (seekMax == C.TIME_UNSET) {
                             seekChange += SEEK_STEP * distanceDiff;
                             position = seekStart + seekChange;
