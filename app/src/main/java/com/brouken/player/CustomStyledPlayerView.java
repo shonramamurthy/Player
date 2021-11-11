@@ -175,7 +175,7 @@ public class CustomStyledPlayerView extends StyledPlayerView implements GestureD
         if (!PlayerActivity.controllerVisibleFully) {
             showController();
             return true;
-        } else if (PlayerActivity.haveMedia && PlayerActivity.player != null && PlayerActivity.player.isPlaying()) {
+        } else if (PlayerActivity.haveMedia && PlayerActivity.player != null) {
             hideController();
             return true;
         }
